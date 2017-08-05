@@ -1,2 +1,2 @@
 # days-tracker
-Responsive Jquery remaining days tracker 
+Responsive remaining days tracker 
