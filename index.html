@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>R&R Tracker</title>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="file:///C:\Users\dam37153\Desktop\pr\libary\tracker\css\normalize.css">
+  <link rel="stylesheet" href="file:///C:\Users\dam37153\Desktop\pr\libary\tracker\css\style.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script src="file:///C:\Users\dam37153\Desktop\pr\libary\tracker\js\script.js"></script>
+        
+ </head>
+ <body>
+   <div class="container">
+
+     <div class = "input-wrapper">
+
+       <div class = "date-wrapper">
+         <span><input id = "arrived" type = "text" name = "date-arrived" placeholder = "date arrived" pattern="\d{1,2}-\d{1,2}-\d{4}" readonly></span>
+         <span><input id = "leaving" type = "text" name = "date-leaving" placeholder = "date leaving" pattern="\d{1,2}-\d{1,2}-\d{4}" readonly></span>
+       </div>
+
+       <div class = "button-wrapper"> 
+        <span class = "button"><input type = "button" id = "button" value = "GET DAYS"></span>
+       </div>
+
+       <div class = "data-wrapper"> 
+        <div class = "data-row total"><span>TOTAL DAYS: </span><span class = "days-total days"></span></div>
+        <div class = "data-row here"><span>DAYS PAST: </span><span class = "days-here days"></span></div>
+        <div class = "data-row left"><span>DAYS LEFT: </span><span class = "days-left days"></span></div>
+       </div>
+
+       <span class = "button2"><input id = "button2" type = "button"  value = "RESET"></span>
+     </div>
+
+    <div class = "center-box">
+
+     <div class="circle">
+     </div>
+
+     <div class="circle-2">
+      <div class="overlay">
+       0%
+      </div>
+     </div>
+    
+     <div class="hider"></div>
+
+     <div class = "filler-wrapper rotate" id = "filler-wrapper">
+      <div class="filler"></div>
+     </div>
+
+     <div class="circle-3">
+     </div>
+
+     <div class = "needle-wrapper rotate-needle" id = "needle-wrapper">
+      <div class="needle"></div>
+     </div>
+
+    </div>
+
+  </div>
+ </body>
+</html>
