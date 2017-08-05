@@ -1,21 +1,17 @@
 (function(){
- "use strict";
-  
+
  $(document).ready(function () {
   $('#button').click(function () {
-
+    
     var arrivedDate = $('#arrived').val();
     var leavingDate = $('#leaving').val();
-
 
     var ad = new Date(arrivedDate);
     var ld = new Date(leavingDate);
     
-      
     var actualDate = new Date();
     var aDay = ad.getDay();
     
-
     var lDay = ld.getDay();
     var actDay = actualDate.getDay(); 
 
@@ -41,7 +37,6 @@
     $('.days-total').text(totalDyas);
     $('.days-here').text(daysHere);
     $('.days-left').text(dayLeft);
-
 
     var percent = Math.round(dayLeft/totalDyas * 100);
     var percent100 = 100 - percent;
