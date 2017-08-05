@@ -1,4 +1,7 @@
-$(document).ready(function () {
+(function(){
+ "use strict";
+  
+ $(document).ready(function () {
   $('#button').click(function () {
 
     var arrivedDate = $('#arrived').val();
@@ -106,5 +109,5 @@ $(document).ready(function () {
   $('#button2').click(function(){
      location.reload();
   });
-  
-})
+ })
+})();
