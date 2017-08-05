@@ -23,18 +23,6 @@ body {
     top: 60px;
  }
 
-@media screen and (max-width: 1180px){
-  .button2 {
-    top: 310px;
-  }
-}
-
-@media screen and (max-height: 900px){
-  .button2 {
-    top: 310px;
-  }
-}
-
 .hider{
   position: absolute;
   width: 500px;
@@ -165,9 +153,6 @@ body {
   margin-top: 30px;
 }
 
-.button-wrapper{
-}
-
 .button2 {
   visibility:hidden;
   z-index: 10;
@@ -223,9 +208,7 @@ body {
 }
 
 .date-wrapper span{
-    
   margin-bottom: 5px;
-    
   display: inline-block;
 }
 
@@ -247,4 +230,16 @@ body {
 
 .days {
   color: #56B4F2
+}
+
+@media screen and (max-width: 1180px){
+  .button2 {
+    top: 310px;
+  }
+}
+
+@media screen and (max-height: 900px){
+  .button2 {
+    top: 310px;
+  }
 }
