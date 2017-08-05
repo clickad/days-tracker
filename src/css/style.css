@@ -17,11 +17,11 @@ body {
 }
 
 .center-box{
-    position: relative;
-    width: 500px;
-    height: 500px;
-    top: 60px;
- }
+  position: relative;
+  width: 500px;
+  height: 500px;
+  top: 60px;
+}
 
 .hider{
   position: absolute;
@@ -230,16 +230,4 @@ body {
 
 .days {
   color: #56B4F2
-}
-
-@media screen and (max-width: 1180px){
-  .button2 {
-    top: 310px;
-  }
-}
-
-@media screen and (max-height: 900px){
-  .button2 {
-    top: 310px;
-  }
 }
