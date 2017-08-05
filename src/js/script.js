@@ -16,7 +16,7 @@ $(document).ready(function () {
     var lDay = ld.getDay();
     var actDay = actualDate.getDay(); 
 
-
+    // ALert if incorrect dates entered otherwise calculate days
     if (ad > ld) {
       alert('Arrived date cannot be later than leaving date!');
     } else if(arrivedDate ==  '' || leavingDate == '' ) {
@@ -29,12 +29,12 @@ $(document).ready(function () {
     function daydiff(first, second) {
       return Math.round((second-first)/(1000*60*60*24));
     }
-   
+    
     var totalDyas = daydiff(ad, ld);
     var dayLeft = daydiff(actualDate, ld);
     var daysHere = daydiff(ad, actualDate);
     
-    
+    // display days
     $('.days-total').text(totalDyas);
     $('.days-here').text(daysHere);
     $('.days-left').text(dayLeft);
@@ -43,7 +43,7 @@ $(document).ready(function () {
     var percent = Math.round(dayLeft/totalDyas * 100);
     var percent100 = 100 - percent;
  
-
+    // function that counts precentage
     function count() {
       var y = parseInt($('.overlay').text().slice(0, -1));
       $('.overlay').text(parseInt((y+1)) + '%');
@@ -54,7 +54,7 @@ $(document).ready(function () {
       }
 
     }
-
+    // execute count() function 
     var timerId = setInterval(function(){ count(); },25);
 
     var percent180 = 180/percent
@@ -69,7 +69,8 @@ $(document).ready(function () {
     var rotateCSS = '.rotate {position: absolute;width: 400px;height: 400px\;z-index: 2;left: 50%;-webkit-transition: 3s;-moz-transition: 3s;-ms-transition: 3s;-o-transition: 3s;transition: 3s;transform: translate(-50%) rotate('+ opositePercent +'deg)}'
 
     var rotateNeedle = '.rotate-needle{ position: absolute; width: 400px; height: 400px; left: 50%; -webkit-transition: 3s;-moz-transition: 3s;-ms-transition: 3s;-o-transition: 3s;transition: 3s; transform: translate(-50%) rotate('+ percentNeedle +'deg); z-index: 11;}'
-
+    
+    // append rotate CSS
     $('head').append('<style></style>');
     $('head style').append(rotateCSS);
     $('head style').append(rotateNeedle);
@@ -96,11 +97,12 @@ $(document).ready(function () {
     }
     
   });
-  
+  // Datepicker
   $( function(){
     $( "#arrived, #leaving" ).datepicker();
   });
 
+  // reset button
   $('#button2').click(function(){
      location.reload();
   });
