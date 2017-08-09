@@ -40,6 +40,9 @@
 
     var percent = Math.round(dayLeft/totalDyas * 100);
     var percent100 = 100 - percent;
+     
+    // execute count() function 
+    var timerId = setInterval(function(){ count(); },25);
  
     // function that counts precentage
     function count() {
@@ -52,9 +55,7 @@
       }
 
     }
-    // execute count() function 
-    var timerId = setInterval(function(){ count(); },25);
-
+     
     var percent180 = 180/percent
     var totalPercent = Math.round(100/percent180);
     
