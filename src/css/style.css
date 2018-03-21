@@ -1,8 +1,10 @@
 body {
   background: #111;
-  background-size: cover;
-  backgrounf-repeat: no-repeat;
   font-family: 'Avant Garde','Lucida Console';
+}
+
+#ui-datepicker-div{
+  z-index: 99 !important;
 }
 
 .container{
@@ -20,8 +22,8 @@ body {
   position: relative;
   width: 500px;
   height: 500px;
-  top: 60px;
-}
+  top: 40px;
+ }
 
 .hider{
   position: absolute;
@@ -108,7 +110,7 @@ body {
   top: 125px;
   transform: translate(-50%, -50%);
   background: #111;
-  box-shadow: 0px -3px 18px #232323;
+  box-shadow: 0 -3px 18px #232323;
 }
 
 .circle-3 {
@@ -125,7 +127,7 @@ body {
   top: 200px;
   transform: translate(-50%, -50%);
   background: #111;
-  box-shadow: 0px -3px 18px #287AB3;
+  box-shadow: 0 -3px 18px #287AB3;
 }
 
 .overlay {
@@ -153,12 +155,14 @@ body {
   margin-top: 30px;
 }
 
-.button2 {
-  visibility:hidden;
-  z-index: 10;
+.button{
+  width: 200px;
+  height: 45px;
+  text-align: center;
+  display: block;
 }
 
-#button, #button2{
+.btn-input{
   width: 200px;
   height: 45px;
   font-size: 24px;
@@ -169,23 +173,15 @@ body {
   background: transparent;
   z-index: 10;
   cursor: pointer;
-  box-shadow: 0px 0px 6px #56B4F2;
+  box-shadow: 0 0 6px #56B4F2;
   z-index: 13;
 }
 
-.button, .button2 {
-  width: 200px;
-  height: 45px;
-  padding: 10px 20px;
-  text-align: center;
-  display: block;
-}
-
-#button:hover, #button2:hover {
+.btn-input:hover {
   opacity: 0.8;
 }
 
-.input-wrapper span input, .button2 input{
+input{
   width: 250px;
   height: 30px;
   font-size: 20px;
@@ -193,13 +189,15 @@ body {
   text-align: center;
   border: 1px solid #555;
   border-radius: 4px;
-  color: #efefef;
+  color: #666;
   background-color: #222;
 }
 
 .data-wrapper {
   width: 100%;
   text-align: center;
+  position: relative;
+  top: 25px;
 }
 
 .date-wrapper{
@@ -210,11 +208,6 @@ body {
 .date-wrapper span{
   margin-bottom: 5px;
   display: inline-block;
-}
-
-
-.total, .here, .left {
-  visibility: hidden;
 }
 
 .data-row{
@@ -228,6 +221,113 @@ body {
   padding: 6px 0;
 }
 
+.total, .here, .left {
+  visibility: hidden;
+}
+
 .days {
   color: #56B4F2
+}
+
+.center-box .rotate-large{
+  width: 400px;
+  height: 400px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.center-box .rotate-small{
+  width: 320px;
+  height: 320px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.transition-default{
+  -webkit-transition: 3s !important;
+  -moz-transition: 3s !important;
+  -ms-transition: 3s !important;
+  -o-transition: 3s !important;
+  transition: 3s !important;
+}
+
+@media (max-width: 768px){
+.center-box {
+    width: 400px;
+    height: 400px;
+    top: 58px;
+}
+.circle {
+    width: 320px;
+    height: 160px;
+    border-top-left-radius: 160px;
+    border-top-right-radius: 160px;
+}
+.circle-2 {
+    width: 240px;
+    height: 120px;
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
+    top: 100px;
+}
+.overlay {
+    font-size: 36px;
+}
+.hider {
+    width: 400px;
+    height: 160px;
+    top: 160px;
+}
+.rotate {
+    width: 320px;
+    height: 320px;
+}
+.filler {
+    width: 320px;
+    height: 160px;
+    top: 160px;
+    border-bottom-left-radius: 160px;
+    border-bottom-right-radius: 160px;
+}
+.circle-3 {
+    width: 32px;
+    height: 32px;
+    border-top-left-radius: 33px;
+    border-top-right-radius: 33px;
+    border-bottom-right-radius: 33px;
+    border-bottom-left-radius: 33px;
+    top: 160px;
+}
+.rotate-needle {
+    width: 320px;
+    height: 320px;
+}
+.needle {
+    width: 8px;
+    height: 168px;
+    border-radius: 160px;
+    top: -7px;
+}
+
+.data-row{
+  font-size: 20px;
+  margin: 3px 0;
+  padding: 3px 0;
+}
+}
+
+@media (max-width: 640px){ 
+  .date-wrapper span{
+    display: block;
+  }
+
+  .input-wrapper {
+    margin-top: 60px;
+  }
 }
