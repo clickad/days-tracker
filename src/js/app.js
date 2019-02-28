@@ -1,6 +1,6 @@
-(function(){
+(()=>{
   'use strict';
-  var app = {
+  let app = {
     init: function(){
       this.window = $(window);
       this.head = $('head');
@@ -27,11 +27,11 @@
       this.transitionDefault();
     },
     getDays: function () { 
-      var self = this;
-      var arrivedDate = this.arrivedDate.val();
-      var leavingDate = this.leavingDate.val();
-      var ad = new Date(arrivedDate);
-      var ld = new Date(leavingDate);
+      let self = this;
+      let arrivedDate = this.arrivedDate.val();
+      let leavingDate = this.leavingDate.val();
+      let ad = new Date(arrivedDate);
+      let ld = new Date(leavingDate);
       if (ad > ld) {
         alert('Arrived date cannot be later than leaving date!');
       } else if(arrivedDate ===  '' || leavingDate === '' ) {
@@ -41,47 +41,91 @@
       } else if(ld < this.actualDate){
         alert('Leaving date cannot be before todays date!');  
       } else { 
-        var daydiff = function (first, second) { 
+        let daydiff = (first, second)=> { 
           return Math.round((second-first)/(1000*60*60*24));
         };
-        var totalDyas = daydiff(ad, ld);
-        var dayLeft = daydiff(this.actualDate, ld);
-        var daysHere = daydiff(ad, this.actualDate);
+        let totalDyas = daydiff(ad, ld);
+        let dayLeft = daydiff(this.actualDate, ld);
+        let daysHere = daydiff(ad, this.actualDate);
         this.daysTotal.text(totalDyas);
         this.daysPast.text(daysHere);
         this.daysLeft.text(dayLeft);
-        var percent = Math.round(dayLeft/totalDyas * 100);
-        var percent100 = 100 - percent;
-        var timerId = setInterval(function(){ count(); },25);
+        let percent = Math.round(dayLeft/totalDyas * 100);
+        let percent100 = 100 - percent;
+        let timerId = setInterval(function(){ count(); },25);
 
-        var count = function() {
-          var y = parseInt(self.overlay.text().slice(0, -1));
+        let count = ()=> {
+          let y = parseInt(self.overlay.text().slice(0, -1));
           self.overlay.text(parseInt((y+1)) + '%');
-          var x = parseInt(self.overlay.text().slice(0, -1));
+          let x = parseInt(self.overlay.text().slice(0, -1));
 
           if (x == percent100) {
             clearInterval(timerId);
           }
         };
-        var percent180 = 180/percent;
-        var totalPercent = Math.round(100/percent180);
-        var opositePercent  = 180 - (percent*1.8);
-        var percentNeedle = opositePercent -90;
-        var rotateCSS, rotateNeedle;
+        let percent180 = 180/percent;
+        let totalPercent = Math.round(100/percent180);
+        let opositePercent  = 180 - (percent*1.8);
+        let percentNeedle = opositePercent -90;
+        let rotateCSS, rotateNeedle;
         if(this.window.width() >= 768){
-          rotateCSS = '.rotate {position: absolute;width: 400px;height: 400px;z-index: 2;left: 50%;' + 
-            '-webkit-transition: 3s;-moz-transition: 3s;-ms-transition: 3s;-o-transition: 3s;' + 
-            'transition: 3s;transform: translate(-50%) rotate('+ opositePercent +'deg)}';
-          rotateNeedle = '.rotate-needle{ position: absolute; width: 400px; height: 400px; left: 50%;' + 
-            '-webkit-transition: 3s;-moz-transition: 3s;-ms-transition: 3s;-o-transition: 3s;' + 
-            'transition: 3s; transform: translate(-50%) rotate('+ percentNeedle +'deg); z-index: 11;}';  
+          rotateCSS = 
+            `.rotate {
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                z-index: 2;
+                left: 50%;
+                -webkit-transition: 3s;
+                -moz-transition: 3s;
+                -ms-transition: 3s;
+                -o-transition: 3s;
+                transition: 3s;
+                transform: translate(-50%) rotate(${opositePercent}deg)
+              }`;
+          rotateNeedle = 
+            `.rotate-needle{ 
+                position: absolute; 
+                width: 400px; 
+                height: 400px; 
+                left: 50%; 
+              -webkit-transition: 3s;
+              -moz-transition: 3s;
+              -ms-transition: 3s;
+              -o-transition: 3s; 
+              transition: 3s; 
+              transform: translate(-50%) rotate(${percentNeedle}deg); 
+              z-index: 11;
+            }`;  
         } else {
-          rotateCSS = '.rotate {position: absolute;width: 320px;height: 320px;z-index: 2;left: 50%;' + 
-            '-webkit-transition: 3s;-moz-transition: 3s;-ms-transition: 3s;-o-transition: 3s;' + 
-            'transition: 3s;transform: translate(-50%) rotate('+ opositePercent +'deg)}';
-          rotateNeedle = '.rotate-needle{ position: absolute; width: 320px; height: 320px; left: 50%; ' + 
-            '-webkit-transition: 3s;-moz-transition: 3s;-ms-transition: 3s;-o-transition: 3s;transition: 3s;' + 
-            'transform: translate(-50%) rotate('+ percentNeedle +'deg); z-index: 11;}';
+          rotateCSS = 
+            `.rotate {
+                position: absolute;
+                width: 320px;
+                height: 320px;
+                z-index: 2;
+                left: 50%; 
+                -webkit-transition: 3s;
+                -moz-transition: 3s;
+                -ms-transition: 3s;
+                -o-transition: 3s;
+                transition: 3s;
+                transform: translate(-50%) rotate(${opositePercent}deg)
+              }`;
+          rotateNeedle = 
+            `.rotate-needle { 
+                position: absolute; 
+                width: 320px; 
+                height: 320px; 
+                left: 50%; 
+                -webkit-transition: 3s;
+                -moz-transition: 3s;
+                -ms-transition: 3s;
+                -o-transition: 3s;
+                transition: 3s;
+                transform: translate(-50%) rotate(${percentNeedle}deg); 
+                z-index: 11;
+              }`;
         }
         $("#filler-wrapper").removeClass('filler-wrapper'); 
         $("#needle-wrapper").removeClass('needle-wrapper');
@@ -91,25 +135,25 @@
         this.buttonWrapper.css('visibility','hidden');
         $('.data-wrapper').show();
 
-        setTimeout( function() {
+        setTimeout( ()=> {
           self.showResetBtn();
         }, 4500);
 
-        setTimeout( function() {
+        setTimeout( ()=> {
           self.showTotal();
         }, 500);
 
-        setTimeout( function() {
+        setTimeout( ()=> {
           self.showDaysPast();
         }, 2000);
 
-        setTimeout( function() {
+        setTimeout( ()=> {
           self.showDaysLeft();
         }, 3500);
       };
     },
     setSize: function(){
-      var self = this;
+      let self = this;
       this.rotate.removeClass('transition-default');
       this.rotateNeedle.removeClass('transition-default');
       if(this.window.width() >= 786){ 
@@ -126,7 +170,7 @@
       setTimeout(self.transitionDefault(),2000);
       
     },
-    transitionDefault: function(){ console.log('sad');
+    transitionDefault: function(){
         this.rotate.addClass('transition-default');
         this.rotateNeedle.addClass('transition-default');
     },
@@ -153,7 +197,7 @@
     }
   };
 
-  $(window).on('load',function () {
+  $(window).on('load',()=> {
     app.init();
   });
 })();
