@@ -52,7 +52,7 @@
         this.daysLeft.text(dayLeft);
         let percent = Math.round(dayLeft/totalDyas * 100);
         let percent100 = 100 - percent;
-        let timerId = setInterval(function(){ count(); },25);
+        let timerId = setInterval(()=>{ count(); },25);
 
         let count = ()=> {
           let y = parseInt(self.overlay.text().slice(0, -1));

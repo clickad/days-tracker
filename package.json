@@ -4,7 +4,7 @@
   "description": "How many days left",
   "main": "src/js/app.js",
   "scripts": {
-    "build": "babel --presets env src/js/app.js -o src/build/app.bundle.js"
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
