@@ -1,24 +1,29 @@
 {
-  "name": "days-tracker",
+  "name": "classjs",
   "version": "1.0.0",
-  "description": "How many days left",
-  "main": "src/js/app.js",
+  "description": "",
+  "private": true,
   "scripts": {
-    "build": "babel src -d lib"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/clickad/days-tracker.git"
-  },
-  "author": "Adnan Damadzic",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/clickad/days-tracker/issues"
-  },
-  "homepage": "https://github.com/clickad/days-tracker#readme",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4"
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "lodash": "^4.17.15"
   }
 }

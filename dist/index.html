@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Days Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div class="container">
+      <div class = "input-wrapper">
+        <div class = "date-wrapper">
+          <span>
+            <input id = "arrived" type = "date" 
+                   name = "date-arrived" placeholder = "date arrived" 
+                   pattern="\d{1,2}-\d{1,2}-\d{4}" ></span>
+          <span>
+            <input id = "leaving" type = "date" 
+                   name = "date-leaving" placeholder = "date leaving" 
+                   pattern="\d{1,2}-\d{1,2}-\d{4}" ></span>
+        </div>
+        <div class = "button-wrapper"> 
+          <span class = "button">
+            <input type = "button" class = "btn-input" id = "button" value = "GET DAYS">
+            <input class = "btn-input" id = "button2" type = "button"  value = "RESET">
+          </span>
+        </div>
+      </div>
+      <div class = "center-box">
+        <div class="circle">
+        </div>
+        <div class="circle-2">
+          <div class="overlay">
+            0%
+          </div>
+        </div>
+        <div class="hider">
+          <div class = "data-wrapper"> 
+            <div class = "data-row total">
+              <span>TOTAL DAYS: </span>
+              <span class = "days-total days"></span>
+            </div>
+            <div class = "data-row here">
+              <span>DAYS PAST: </span>
+              <span class = "days-here days"></span>
+            </div>
+            <div class = "data-row left">
+              <span>DAYS LEFT: </span>
+              <span class = "days-left days"></span>
+            </div>
+          </div>
+        </div>
+        <div class = "filler-wrapper rotate" id = "filler-wrapper">
+          <div class="filler"></div>
+        </div>
+        <div class="circle-3">
+        </div>
+        <div class = "needle-wrapper rotate-needle" id = "needle-wrapper">
+          <div class="needle"></div>
+        </div>
+      </div>
+
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
